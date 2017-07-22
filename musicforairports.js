@@ -1,4 +1,4 @@
- const SAMPLE_LIBRARY = {
+const SAMPLE_LIBRARY = {
   'Grand Piano': [
     { note: 'A',  octave: 4, file: 'Samples/Grand Piano/piano-f-a4.wav' },
     { note: 'A',  octave: 5, file: 'Samples/Grand Piano/piano-f-a5.wav' },
@@ -46,8 +46,6 @@
 
 const OCTAVE = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
-
-
 let audioContext = new AudioContext();
 
 function fetchSample(path) {
@@ -75,15 +73,14 @@ function getNearestSample(sampleBank, note, octave) {
   return sortedBank[0];
 }
 
-//turn flat notes to sharp
 function flatToSharp(note) {
   switch (note) {
-    case 'Bb' : return 'A#';
-    case 'Db' : return 'C#';
-    case 'Eb' : return 'D#';
-    case 'Gb' : return 'F#';
-    case 'Ab' : return 'G#';
-    default: return note;
+    case 'Bb': return 'A#';
+    case 'Db': return 'C#';
+    case 'Eb': return 'D#';
+    case 'Gb': return 'F#';
+    case 'Ab': return 'G#';
+    default:   return note;
   }
 }
 
@@ -97,12 +94,12 @@ function getSample(instrument, noteAndOctave) {
     getNoteDistance(requestedNote, requestedOctave, sample.note, sample.octave);
   return fetchSample(sample.file).then(audioBuffer => ({
     audioBuffer: audioBuffer,
-    distance: getNoteDistance(requestedNote, requestedOctave, nearestSample.note, nearestSample.octave)
+    distance: distance
   }));
 }
 
 function playSample(instrument, note, destination, delaySeconds = 0) {
-  getSample(instrument,note).then(({audioBuffer, distance}) => {
+  getSample(instrument, note).then(({audioBuffer, distance}) => {
     let playbackRate = Math.pow(2, distance / 12);
     let bufferSource = audioContext.createBufferSource();
 
@@ -111,12 +108,15 @@ function playSample(instrument, note, destination, delaySeconds = 0) {
 
     bufferSource.connect(destination);
     bufferSource.start(audioContext.currentTime + delaySeconds);
-  })
+  });
 }
 
 function startLoop(instrument, note, destination, loopLengthSeconds, delaySeconds) {
   playSample(instrument, note, destination, delaySeconds);
-  setInterval(() => playSample(instrument, note, destination, delaySeconds), loopLengthSeconds * 1000);
+  setInterval(
+    () => playSample(instrument, note, destination, delaySeconds),
+    loopLengthSeconds * 1000
+  );
 }
 
 fetchSample('AirportTerminal.wav').then(convolverBuffer => {
@@ -125,24 +125,16 @@ fetchSample('AirportTerminal.wav').then(convolverBuffer => {
   convolver.buffer = convolverBuffer;
   convolver.connect(audioContext.destination);
 
-  startLoop('Grand Piano', 'F4',  convolver, 10, 3);
-  startLoop('Grand Piano', 'Ab4', convolver, 15, 2);
-  startLoop('Grand Piano', 'C5',  convolver, 20, 19);
-  startLoop('Grand Piano', 'Db5', convolver, 18, 9);
-  startLoop('Grand Piano', 'Eb5', convolver, 30, 15);
-  startLoop('Grand Piano', 'F5',  convolver, 16, 2);
-  startLoop('Grand Piano', 'Ab5', convolver, 20, 3);
   startLoop('Cello', 'F4',  convolver, 19.7, 4.0);
   startLoop('Bass Drum', 'F4', convolver, 30, 2);
   startLoop('Timpani', 'A1', convolver, 10, 6);
   startLoop('Timpani', 'C2', convolver, 5, 7);
-  /*startLoop('Cello', 'Ab4', convolver, 17.8, 8.1);
+  startLoop('Cello', 'Ab4', convolver, 17.8, 8.1);
   startLoop('Cello', 'C5',  convolver, 21.3, 5.6);
-  startLoop('Cello', 'Db5', convolver, 22.1, 12.6);
-  startLoop('Cello', 'Eb5', convolver, 18.4, 9.2);
-  startLoop('Cello', 'F5',  convolver, 20.0, 14.1);
-  startLoop('Cello', 'Ab5', convolver, 17.7, 3.1);*/
-})
+  startLoop('Grand Piano', 'Eb5', convolver, 30, 15);
+  startLoop('Grand Piano', 'F5',  convolver, 16, 2);
+  startLoop('Grand Piano', 'Ab5', convolver, 20, 3);
+});
 
 
 
