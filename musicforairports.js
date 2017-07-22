@@ -1,7 +1,3 @@
-$(document).ready(function() {
-
-  
-
  const SAMPLE_LIBRARY = {
   'Grand Piano': [
     { note: 'A',  octave: 4, file: 'Samples/Grand Piano/piano-f-a4.wav' },
@@ -147,8 +143,6 @@ fetchSample('AirportTerminal.wav').then(convolverBuffer => {
   startLoop('Cello', 'F5',  convolver, 20.0, 14.1);
   startLoop('Cello', 'Ab5', convolver, 17.7, 3.1);*/
 })
-
-});
 
 
 
