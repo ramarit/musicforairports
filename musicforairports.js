@@ -1,12 +1,4 @@
 const SAMPLE_LIBRARY = {
-  /*  <option value="Bassoon">Bassoon</option>
-        <option value="Clarinet">Clarinet</option>
-        <option value="Flute">Flute</option>
-        <option value="Harp">Harp</option>
-        <option value="Horn">Horn</option> 
-        <option value="Oboe">Oboe</option>
-        <option value="Piccolo">Piccolo</option>
-        <option value="Violin">Violin</option>*/
   'Oboe': [
     { note: 'A', octave: 4, file: 'Samples/Oboe/oboe-a#4.wav'},
     { note: 'A', octave: 5, file: 'Samples/Oboe/oboe-a#5.wav'},
@@ -153,131 +145,36 @@ function startLoop(instrument, note, destination, loopLengthSeconds, delaySecond
 }
 
 fetchSample('AirportTerminal.wav').then(convolverBuffer => {
-  var startStop = document.getElementById("start-stop");
-
-  /*** Instrument 1 ***/
-  var instrument1 = document.getElementById("instrument-1");
-  var loop1 = document.getElementById("loop1");
-  var delay1 = document.getElementById("delay1");
-  var note = document.getElementById("notes");
-  var sharpFlat = document.getElementById("sharpFlat");
-  var octave = document.getElementById("octave");
-
-  var noteValue = note.value+sharpFlat.value+octave.value;
-
-  /*** Instrument 2 ***/
-  var instrument2 = document.getElementById("instrument-2");
-  var loop2 = document.getElementById("loop2");
-  var delay2 = document.getElementById("delay2");
-  var note2 = document.getElementById("note2");
-  var sharpFlat2 = document.getElementById("sharpFlat2");
-  var octave2 = document.getElementById("octave2");
-
-  var noteValue2 = note2.value+sharpFlat2.value+octave2.value;
-
-  /*** Instrument 3 ***/
-  var instrument3 = document.getElementById("instrument-3");
-  var loop3 = document.getElementById("loop3");
-  var delay3 = document.getElementById("delay3");
-  var note3 = document.getElementById("note3");
-  var sharpFlat3 = document.getElementById("sharpFlat3");
-  var octave3 = document.getElementById("octave3");
-
-  var noteValue3 = note3.value+sharpFlat3.value+octave3.value;
-  
-
-
-  /*instrument1.addEventListener('mouseup', function() {
-    var selectInstrument1 = $(".instrument1:checked").val();
-    $(".update-basic-info").click(function () {
-      startLoop(selectInstrument1, 'F4', convolver, loop1.value, delay1.value);
-    });
-  });*/
-
-
-  /*$(".update-basic-info").click(function () {
-    let convolver, runningLoops;
-    if (playingSince) {
-      convolver.disconnect();
-      runningLoops.clearInverval();
-      playingSince = null;
-      /*alert("playing");*/
-    /*} else {
-      /*alert("not playing");*/
-     /* convolver = audioContext.createConvolver();
-      convolver.buffer = convolverBuffer;
-      convolver.connect(audioContext.destination);
-      playingSince = audioContext.currentTime;
-
-      /*var selectInstrument1 = $(".instrument1:checked").val();
-      startLoop(selectInstrument1, 'F4', convolver, loop1.value, delay1.value);*/
-
-     /* instrument1.addEventListener('mouseup', function() {
-        var selectInstrument1 = $(".instrument1:checked").val();
-
-        startLoop(selectInstrument1, 'F4', convolver, loop1.value, delay1.value);
-      });
-    }
-  });*/
-
   $(".update-instrument1").click(function () {
+    /*** Instrument 1 ***/
+    var instrument1 = document.getElementById("instrument-1");
+    var loop1 = document.getElementById("loop1");
+    var delay1 = document.getElementById("delay1");
+    var note = document.getElementById("notes");
+    var sharpFlat = document.getElementById("sharpFlat");
+    var octave = document.getElementById("octave");
+    var noteValue = note.value+sharpFlat.value+octave.value;
     let convolver, runningLoops;
     convolver = audioContext.createConvolver();
     convolver.buffer = convolverBuffer;
     convolver.connect(audioContext.destination);
     playingSince = audioContext.currentTime;
+    var selectInstrument1 = $(".instrument1:checked").val();
 
-      /*var selectInstrument1 = $(".instrument1:checked").val();
-      startLoop(selectInstrument1, 'F4', convolver, loop1.value, delay1.value);*/
+    startLoop(selectInstrument1, noteValue, convolver, loop1.value, delay1.value);
 
-    instrument1.addEventListener('click', function() {
-      var selectInstrument1 = $(".instrument1:checked").val();
+    var random1 = Math.floor((Math.random() * 30) + 1);
+    var random2 = Math.floor((Math.random() * 30) + 1);
+    var random3 = Math.floor((Math.random() * 30) + 1);
+    var random4 = Math.floor((Math.random() * 30) + 1);
+    var random5 = Math.floor((Math.random() * 30) + 1);
+    var random6 = Math.floor((Math.random() * 30) + 1);
 
-      startLoop(selectInstrument1, noteValue, convolver, loop1.value, delay1.value);
-    });
-
-    /*instrument2.addEventListener('click', function() {
-      var selectInstrument2 = $(".instrument2:checked").val();
-
-      startLoop(selectInstrument2, noteValue2, convolver, loop2.value, delay2.value);
-    });*/
-
-    startLoop('Grand Piano', 'Eb5', convolver, 30, 15);
-    startLoop('Grand Piano', 'F5',  convolver, 16, 2);
-    startLoop('Grand Piano', 'Ab5', convolver, 20, 3);
+    startLoop('Grand Piano', 'Eb5', convolver, random1, random2);
+    startLoop('Grand Piano', 'F5',  convolver, random3, random4);
+    startLoop('Grand Piano', 'Ab5', convolver, random5, random6);
   });
     
-
-
-  $(".update-instrument2").click(function () {
-    let convolver, runningLoops;
-    convolver = audioContext.createConvolver();
-    convolver.buffer = convolverBuffer;
-    convolver.connect(audioContext.destination);
-    playingSince = audioContext.currentTime;
-
-    instrument2.addEventListener('click', function() {
-      var selectInstrument2 = $(".instrument2:checked").val();
-
-      startLoop(selectInstrument2, noteValue2, convolver, loop2.value, delay2.value);
-    });
-  });
-
-  $(".update-instrument3").click(function () {
-    let convolver, runningLoops;
-    convolver = audioContext.createConvolver();
-    convolver.buffer = convolverBuffer;
-    convolver.connect(audioContext.destination);
-    playingSince = audioContext.currentTime;
-
-    instrument3.addEventListener('click', function() {
-      var selectInstrument3 = $(".instrument3:checked").val();
-
-      startLoop(selectInstrument3, noteValue3, convolver, loop3.value, delay3.value);
-    });
-  });
-
-
   /*startLoop('Grand Piano', 'Ab5', convolver, 1, 1);*/
   /*startLoop('Cello', 'F4',  convolver, loop, delay);*/
   /*startLoop('Cello', 'F4',  convolver, 19.7, 4.0);*/
@@ -291,6 +188,8 @@ fetchSample('AirportTerminal.wav').then(convolverBuffer => {
   startLoop('Grand Piano', 'Ab5', convolver, 20, 3);*/
   
 });
+
+
 
 
 

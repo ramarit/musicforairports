@@ -6,38 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/8.5.1/nouislider.min.css">
-  <title>Document</title>
+  <link href="css/styles.css" rel="stylesheet">
+  <title>Music for Airports</title>
 
 </head>
 <body>
-  <h1>Music for Airports</h1>
+  
+  <div id="instrument-1">
+    <div class="container">
+      <h1>Music for Airports</h1>
+      <p>Choose an Instrument</p> 
+      <ul>
+        <li>
+          <input type="radio" id="f-option" name="instrument" class="instrument1" value="Grand Piano" checked="checked">
+          <label for="f-option">Grand Piano</label>
 
-    <div id="play">
-      
-    </div> <!-- End #play -->
+          <div class="check"></div>
+        </li>
 
-    <div id="instrument-1">
-      <p>Instrument 1</p> <!-- Instrument-1 -->
-      <select name="instrument">
-        <option value="Bassoon">Bassoon</option>
-        <option value="Cello">Cello</option>
-        <option value="Chorus">Chorus</option>
-        <option value="Clarinet">Clarinet</option>
-        <option value="Flute">Flute</option>
-        <option value="Grand Piano">Grand Piano</option>
-        <option value="Harp">Harp</option>
-        <option value="Horn">Horn</option> 
-        <option value="Oboe">Oboe</option>
-        <option value="Piccolo">Piccolo</option>
-        <option value="Violin">Violin</option>
-      </select>
-      <input type="radio" name="instrument" class="instrument1" value="Grand Piano" checked />Grand Piano
-      <input type="radio" name="instrument" class="instrument1" value="Cello">Cello
-      <input type="radio" name="instrument" class="instrument1" value="Chorus">Chorus
-      <input type="radio" name="instrument" class="instrument1" value="Oboe">Oboe
-      <input type="radio" name="instrument" class="instrument1" value="Timpani">Timpani
-      
+        <li>
+          <input type="radio" id="s-option" name="instrument" class="instrument1" value="Cello">
+          <label for="s-option">Cello</label>
+
+          <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+          <input type="radio" id="t-option" name="instrument" class="instrument1" value="Chorus">
+          <label for="t-option">Chorus</label>
+
+          <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+          <input type="radio" id="u-option" name="instrument" class="instrument1" value="Oboe">
+          <label for="u-option">Oboe</label>
+
+          <div class="check"><div class="inside"></div></div>
+        </li>
+      </ul>
       <p>Note</p>
       <select name="notes" id="notes" onchange="this.value=value">
         <option value="C">C</option>
@@ -77,145 +84,18 @@
         <output id="delayValue1">1</output>
       </div>
 
-      <input type="button" class="update-instrument1" value="Start New Track" />
-    </div> <!-- End #instrument-1 -->
+      <input type="button" class="update-instrument1 myButton" value="Start New Track" />
+    </div>      
+  </div> <!-- End #instrument-1 -->
 
-    <!--<input type="button" id="start-stop" value="Start" />-->
 
-
-    <div id="instrument-2">
-      <p>Instrument 2</p> <!-- Instrument-3 -->
-      <select name="instrument">
-        <option value="Bassoon">Bassoon</option>
-        <option value="Cello">Cello</option>
-        <option value="Chorus">Chorus</option>
-        <option value="Clarinet">Clarinet</option>
-        <option value="Flute">Flute</option>
-        <option value="Grand Piano">Grand Piano</option>
-        <option value="Harp">Harp</option>
-        <option value="Horn">Horn</option> 
-        <option value="Oboe">Oboe</option>
-        <option value="Piccolo">Piccolo</option>
-        <option value="Violin">Violin</option>
-      </select>
-      <input type="radio" name="instrument" class="instrument2" value="Grand Piano" checked />Grand Piano
-      <input type="radio" name="instrument" class="instrument2" value="Cello">Cello
-      <input type="radio" name="instrument" class="instrument2" value="Chorus">Chorus
-      <input type="radio" name="instrument" class="instrument2" value="Oboe">Oboe
-      
-      <p>Note</p>
-      <select name="note2" id="note2" onchange="this.value=value">
-        <option value="C">C</option>
-        <option value="D">D</option>
-        <option value="E">E</option>
-        <option value="F">F</option>
-        <option value="G">G</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-
-      </select>
-
-      <P>Sharp/Flat</P>
-      <select name="sharpFlat2" id="sharpFlat2" onchange="this.value=value">
-        <option value=""></option>
-        <option value="#">#</option>
-        <option value="b">b</option>
-      </select>
-
-      <p>Octave</p>
-      <select name="octave2" id="octave2" onchange="this.value=value">
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-      </select>
- 
-      <p>Loop Length</p>
-      <div id="slider">
-        <input class="bar" type="range" id="loop2" min="1" max="25" value="1" onchange="loopValue2.value=value"/>
-        <span class="highlight"></span>
-        <output id="loopValue2">1</output>
-      </div>
-
-      <p>Delay</p>
-      <div id="slider">
-        <input class="bar" type="range" id="delay2" min="1" max="25" value="1" onchange="delayValue2.value=value"/>
-        <span class="highlight"></span>
-        <output id="delayValue2">1</output>
-      </div>
-
-      <input type="button" class="update-instrument2" value="Start New Track" />
-    </div> <!-- End #instrument-2 -->
-
-    <div id="instrument-3">
-      <p>Instrument 3</p> <!-- Instrument-3 -->
-      <select name="instrument">
-        <option value="Bassoon">Bassoon</option>
-        <option value="Cello">Cello</option>
-        <option value="Chorus">Chorus</option>
-        <option value="Clarinet">Clarinet</option>
-        <option value="Flute">Flute</option>
-        <option value="Grand Piano">Grand Piano</option>
-        <option value="Harp">Harp</option>
-        <option value="Horn">Horn</option> 
-        <option value="Oboe">Oboe</option>
-        <option value="Piccolo">Piccolo</option>
-        <option value="Violin">Violin</option>
-      </select>
-      <input type="radio" name="instrument" class="instrument3" value="Grand Piano" checked />Grand Piano
-      <input type="radio" name="instrument" class="instrument3" value="Cello">Cello
-      <input type="radio" name="instrument" class="instrument3" value="Chorus">Chorus
-      <input type="radio" name="instrument" class="instrument3" value="Oboe">Oboe
-      
-      <p>Note</p>
-      <select name="note3" id="note3" onchange="this.value=value">
-        <option value="C">C</option>
-        <option value="D">D</option>
-        <option value="E">E</option>
-        <option value="F">F</option>
-        <option value="G">G</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-
-      </select>
-
-      <P>Sharp/Flat</P>
-      <select name="sharpFlat3" id="sharpFlat3" onchange="this.value=value">
-        <option value=""></option>
-        <option value="#">#</option>
-        <option value="b">b</option>
-      </select>
-
-      <p>Octave</p>
-      <select name="octave3" id="octave3" onchange="this.value=value">
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-      </select>
- 
-      <p>Loop Length</p>
-      <div id="slider">
-        <input class="bar" type="range" id="loop3" min="1" max="25" value="1" onchange="loopValue3.value=value"/>
-        <span class="highlight"></span>
-        <output id="loopValue3">1</output>
-      </div>
-
-      <p>Delay</p>
-      <div id="slider">
-        <input class="bar" type="range" id="delay3" min="1" max="25" value="1" onchange="delayValue3.value=value"/>
-        <span class="highlight"></span>
-        <output id="delayValue3">1</output>
-      </div>
-
-      <input type="button" class="update-instrument3" value="Start New Track" />
-    </div> <!-- End #instrument-2 -->
-
+    
 
 
 
   <script src="https://cdn.rawgit.com/mohayonao/web-audio-api-shim/master/build/web-audio-api-shim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/8.5.1/nouislider.min.js"></script>
   <script src="musicforairports.js"></script>
 </body>
 </html>
