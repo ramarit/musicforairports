@@ -148,8 +148,10 @@ fetchSample('AirportTerminal.wav').then(convolverBuffer => {
   $(".update-instrument1").click(function () {
     /*** Instrument 1 ***/
     var instrument1 = document.getElementById("instrument-1");
-    var loop1 = document.getElementById("loop1");
-    var delay1 = document.getElementById("delay1");
+    var loop1 = document.getElementById("loop1").value;
+    var loopNum = parseInt(loop1);
+    var delay1 = document.getElementById("delay1").value;
+    var delayNum = parseInt(delay1);
     var note = document.getElementById("notes");
     var sharpFlat = document.getElementById("sharpFlat");
     var octave = document.getElementById("octave");
@@ -158,10 +160,10 @@ fetchSample('AirportTerminal.wav').then(convolverBuffer => {
     convolver = audioContext.createConvolver();
     convolver.buffer = convolverBuffer;
     convolver.connect(audioContext.destination);
-    playingSince = audioContext.currentTime;
-    var selectInstrument1 = $(".instrument1:checked").val();
 
-    startLoop(selectInstrument1, noteValue, convolver, loop1.value, delay1.value);
+    var selectInstrument1 = $(".instrument1:checked").val();
+    startLoop(selectInstrument1, noteValue, convolver, loopNum, delayNum);
+
 
     var random1 = Math.floor((Math.random() * 30) + 1);
     var random2 = Math.floor((Math.random() * 30) + 1);
@@ -170,9 +172,9 @@ fetchSample('AirportTerminal.wav').then(convolverBuffer => {
     var random5 = Math.floor((Math.random() * 30) + 1);
     var random6 = Math.floor((Math.random() * 30) + 1);
 
-    startLoop('Grand Piano', 'Eb5', convolver, random1, random2);
+    /*startLoop('Grand Piano', 'Eb5', convolver, random1, random2);
     startLoop('Grand Piano', 'F5',  convolver, random3, random4);
-    startLoop('Grand Piano', 'Ab5', convolver, random5, random6);
+    startLoop('Grand Piano', 'Ab5', convolver, random5, random6);*/
   });
     
   /*startLoop('Grand Piano', 'Ab5', convolver, 1, 1);*/

@@ -45,41 +45,50 @@
           <div class="check"><div class="inside"></div></div>
         </li>
       </ul>
-      <p>Note</p>
-      <select name="notes" id="notes" onchange="this.value=value">
-        <option value="C">C</option>
-        <option value="D">D</option>
-        <option value="E">E</option>
-        <option value="F">F</option>
-        <option value="G">G</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-      </select>
 
-      <P>Sharp/Flat</P>
-      <select name="sharpFlat" id="sharpFlat" onchange="this.value=value">
-        <option value=""></option>
-        <option value="#">#</option>
-        <option value="b">b</option>
-      </select>
+      <div class="dropdown">
+        <p>Note</p>
+        <select name="notes" id="notes" onchange="this.value=value">
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+          <option value="G">G</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+        </select>
+      </div>
+      
+      <div class="dropdown">
+        <P>Sharp/Flat</P>
+        <select name="sharpFlat" id="sharpFlat" onchange="this.value=value">
+          <option value=""></option>
+          <option value="#">#</option>
+          <option value="b">b</option>
+        </select>
+      </div>
+      
 
-      <p>Octave</p>
-      <select name="octave" id="octave" onchange="this.value=value">
-        <option value="4">4</option>
-        <option selected value="5">5</option>
-        <option value="6">6</option>
-      </select>
+      <div class="dropdown">
+        <p>Octave</p>
+        <select name="octave" id="octave" onchange="this.value=value">
+          <option value="4">4</option>
+          <option selected value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </div>
+      
  
       <p>Loop Length</p>
       <div id="slider">
-        <input class="bar" type="range" id="loop1" min="1" max="25" value="1" onchange="loopValue1.value=value"/>
+        <input class="bar" type="range" id="loop1" min="1" max="30" value="1" onchange="loopValue1.value=value"/>
         <span class="highlight"></span>
         <output id="loopValue1">1</output>
       </div>
 
       <p>Delay</p>
       <div id="slider">
-        <input class="bar" type="range" id="delay1" min="1" max="25" value="1" onchange="delayValue1.value=value"/>
+        <input class="bar" type="range" id="delay1" min="1" max="30" value="1" onchange="delayValue1.value=value"/>
         <span class="highlight"></span>
         <output id="delayValue1">1</output>
       </div>
