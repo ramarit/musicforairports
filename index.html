@@ -7,16 +7,19 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>Music for Airports</title>
 
 </head>
 <body>
+
   
   <div id="instrument-1">
     <div class="container">
       <h1>Music for Airports</h1>
-      <p>Choose an Instrument</p> 
       <ul>
+        <p>Choose an instrument: </p>
         <li>
           <input type="radio" id="f-option" name="instrument" class="instrument1" value="Grand Piano" checked="checked">
           <label for="f-option">Grand Piano</label>
@@ -46,9 +49,10 @@
         </li>
       </ul>
 
+      <!--<p>Note:</p>-->
       <div class="dropdown">
-        <p>Note</p>
-        <select name="notes" id="notes" onchange="this.value=value">
+        <span>Note:</span>
+        <select class="dropdown-select" name="notes" id="notes" onchange="this.value=value">
           <option value="C">C</option>
           <option value="D">D</option>
           <option value="E">E</option>
@@ -59,19 +63,20 @@
         </select>
       </div>
       
+      <!--<p>Sharp/Flat:</p>-->
       <div class="dropdown">
-        <P>Sharp/Flat</P>
-        <select name="sharpFlat" id="sharpFlat" onchange="this.value=value">
+        <span>Sharp/Flat:</span>
+        <select class="dropdown-select" name="sharpFlat" id="sharpFlat" onchange="this.value=value">
           <option value=""></option>
           <option value="#">#</option>
           <option value="b">b</option>
         </select>
       </div>
       
-
+      <!--<p>Octave:</p>-->
       <div class="dropdown">
-        <p>Octave</p>
-        <select name="octave" id="octave" onchange="this.value=value">
+        <span>Octave:</span>
+        <select class="dropdown-select" name="octave" id="octave" onchange="this.value=value">
           <option value="4">4</option>
           <option selected value="5">5</option>
           <option value="6">6</option>
@@ -79,23 +84,31 @@
       </div>
       
  
-      <p>Loop Length</p>
+      <p>Loop Length: </p><span><output id="loopValue1">1</output></span>
       <div id="slider">
         <input class="bar" type="range" id="loop1" min="1" max="30" value="1" onchange="loopValue1.value=value"/>
-        <span class="highlight"></span>
-        <output id="loopValue1">1</output>
+        <span class="highlight"></span> 
       </div>
 
-      <p>Delay</p>
+      
+
+      <!--<p>Delay</p>
       <div id="slider">
         <input class="bar" type="range" id="delay1" min="1" max="30" value="1" onchange="delayValue1.value=value"/>
         <span class="highlight"></span>
         <output id="delayValue1">1</output>
-      </div>
+      </div>-->
 
       <input type="button" class="update-instrument1 myButton" value="Start New Track" />
+      <!--<a class='my-tool-tip' data-toggle="tooltip" data-placement="right" title="Click to add as many tracks as you would like">
+          <i class='glyphicon glyphicon-info-sign'></i>
+      </a>-->
     </div>      
   </div> <!-- End #instrument-1 -->
+
+  <div id="display">
+  </div>
+
 
 
     
@@ -105,6 +118,7 @@
   <script src="https://cdn.rawgit.com/mohayonao/web-audio-api-shim/master/build/web-audio-api-shim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="musicforairports.js"></script>
 </body>
 </html>
