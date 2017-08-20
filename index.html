@@ -6,42 +6,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="css/styles.css" rel="stylesheet">
+  
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css">
+  <link href="css/styles.css" rel="stylesheet">
+  
   <title>Music for Airports</title>
 
 </head>
-<body>
-
-  
+<body>  
   <div id="instrument-1">
     <div class="container">
       <h1>Music for Airports</h1>
+      <!--<div id="mp3_player">
+  <div id="audio_box"></div>
+  <canvas id="analyser_render"></canvas>
+</div>-->
       <ul>
-        <p>Choose an instrument: </p>
-        <li>
+        <a class="btn btn-large btn-success" href="javascript:void(0);" onclick="startIntro();">Show me how</a>
+        <br>
+        <span id="step1">Choose an instrument: </span>
+        <br>
+        <li class="list">
           <input type="radio" id="f-option" name="instrument" class="instrument1" value="Grand Piano" checked="checked">
           <label for="f-option">Grand Piano</label>
 
           <div class="check"></div>
         </li>
 
-        <li>
+        <li class="list">
           <input type="radio" id="s-option" name="instrument" class="instrument1" value="Cello">
           <label for="s-option">Cello</label>
 
           <div class="check"><div class="inside"></div></div>
         </li>
 
-        <li>
+        <li class="list">
           <input type="radio" id="t-option" name="instrument" class="instrument1" value="Chorus">
           <label for="t-option">Chorus</label>
 
           <div class="check"><div class="inside"></div></div>
         </li>
 
-        <li>
+        <li class="list">
           <input type="radio" id="u-option" name="instrument" class="instrument1" value="Oboe">
           <label for="u-option">Oboe</label>
 
@@ -51,7 +62,7 @@
 
       <!--<p>Note:</p>-->
       <div class="dropdown">
-        <span>Note:</span>
+        <span id="step2">Note:</span>
         <select class="dropdown-select" name="notes" id="notes" onchange="this.value=value">
           <option value="C">C</option>
           <option value="D">D</option>
@@ -65,7 +76,7 @@
       
       <!--<p>Sharp/Flat:</p>-->
       <div class="dropdown">
-        <span>Sharp/Flat:</span>
+        <span id="step3">Sharp/Flat:</span>
         <select class="dropdown-select" name="sharpFlat" id="sharpFlat" onchange="this.value=value">
           <option value=""></option>
           <option value="#">#</option>
@@ -75,7 +86,7 @@
       
       <!--<p>Octave:</p>-->
       <div class="dropdown">
-        <span>Octave:</span>
+        <span id="step4">Octave:</span>
         <select class="dropdown-select" name="octave" id="octave" onchange="this.value=value">
           <option value="4">4</option>
           <option selected value="5">5</option>
@@ -84,7 +95,7 @@
       </div>
       
  
-      <p>Loop Length: </p><span><output id="loopValue1">1</output></span>
+      <p><span id="step5">Loop Length: </span></p><span><output id="loopValue1">1</output></span>
       <div id="slider">
         <input class="bar" type="range" id="loop1" min="1" max="30" value="1" onchange="loopValue1.value=value"/>
         <span class="highlight"></span> 
@@ -99,26 +110,63 @@
         <output id="delayValue1">1</output>
       </div>-->
 
-      <input type="button" class="update-instrument1 myButton" value="Start New Track" />
+      <input id="step6" type="button" class="update-instrument1 myButton" value="Start New Track" />
       <!--<a class='my-tool-tip' data-toggle="tooltip" data-placement="right" title="Click to add as many tracks as you would like">
           <i class='glyphicon glyphicon-info-sign'></i>
       </a>-->
     </div>      
   </div> <!-- End #instrument-1 -->
 
-  <div id="display">
-  </div>
+  <!--<div id="display">
+  </div>-->
 
 
 
     
 
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/intro.js"</script>
   <script src="https://cdn.rawgit.com/mohayonao/web-audio-api-shim/master/build/web-audio-api-shim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="musicforairports.js"></script>
+  <script type="text/javascript">
+      function startIntro(){
+        var intro = introJs();
+          intro.setOptions({
+            steps: [
+              {
+                element: '#step1',
+                intro: "Select a instrument:"
+              },
+              {
+                element: '#step2',
+                intro: "Next, choose a note:",
+                position: 'right'
+              },
+              {
+                element: '#step3',
+                intro: 'You can make that note either flat/sharp or just leave it!',
+                position: 'left'
+              },
+              {
+                element: '#step4',
+                intro: "Select the octave!",
+                position: 'bottom'
+              },
+              {
+                element: '#step5',
+                intro: 'Next, decide how long each is going to be!'
+              },
+              {
+                element: '#step6',
+                intro: "Click me to start a new track! You can add as many tracks as you'd like!"
+              }
+            ]
+          });
+          intro.start();
+      }
+    </script>
 </body>
 </html>
