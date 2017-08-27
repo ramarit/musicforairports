@@ -292,12 +292,18 @@ input[type=radio]:checked~label {
   z-index:1;
 }*/
 
-.container {
+.instrument {
     background: #222;
     color: #fff;
     text-shadow: 2px 0 rgba(255, 0, 0, 0.9), -2px 0 rgba(0, 0, 255, 0.9);
     padding: 40px;
     font-family: 'Source Code Pro';
+}
+
+nav {
+  background: #222;
+    color: #fff;
+    text-shadow: 2px 0 rgba(255, 0, 0, 0.9), -2px 0 rgba(0, 0, 255, 0.9);
 }
 
 h1,
@@ -353,12 +359,9 @@ body {
 
 /* Medium Devices, Desktops */
 
-@media only screen and (min-width: 987px) {
+@media only screen and (min-width: 981px) {
     .instrument {
-        margin-top: 250px;
-    }
-    .container {
-      width: 55%;
+        margin-top: 100px;
     }
 }
 
@@ -368,9 +371,6 @@ body {
 
 @media only screen and (min-width: 1200px) {
     .instrument {
-        margin-top: 230px;
-    }
-    .container {
-      width: 50%;
+        margin-top: 100px;
     }
 }

@@ -34,7 +34,7 @@
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="#portfolioModal1" class="portfolio-link hidden-xs" data-toggle="modal">About</a>
-                        <a href="#about" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">About</a>
+                        <a href="#portfolioModal1" class="portfolio-link visible-xs" data-toggle="modal">About</a>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="hidden-xs" onclick="startIntro();">How it works</a>
@@ -46,42 +46,50 @@
         </div>
         <!-- /.container -->
     </nav>
-
-
     <div class="container instrument">
         <div id="instrument-1">
-            <ul>
-                <span id="step1">Choose an instrument: </span>
-                <br>
-                <li class="list">
-                    <input type="radio" id="f-option" name="instrument" class="instrument1" value="Grand Piano" checked="checked">
-                    <label for="f-option">Grand Piano</label>
-                    <div class="check"></div>
-                </li>
-                <li class="list">
-                    <input type="radio" id="s-option" name="instrument" class="instrument1" value="Cello">
-                    <label for="s-option">Cello</label>
-                    <div class="check">
-                        <div class="inside"></div>
+            <div class="row">
+                <ul>
+                    <span id="step1">Choose an instrument: </span>
+                    <div class="col-xs-12">
+                        <li class="list">
+                            <input type="radio" id="f-option" name="instrument" class="instrument1" value="Grand Piano" checked="checked">
+                            <label for="f-option">Grand Piano</label>
+                            <div class="check"></div>
+                        </li>
                     </div>
-                </li>
-                <li class="list">
-                    <input type="radio" id="t-option" name="instrument" class="instrument1" value="Chorus">
-                    <label for="t-option">Chorus</label>
-                    <div class="check">
-                        <div class="inside"></div>
+                    <div class="col-xs-12">
+                        <li class="list">
+                            <input type="radio" id="s-option" name="instrument" class="instrument1" value="Cello">
+                            <label for="s-option">Cello</label>
+                            <div class="check">
+                                <div class="inside"></div>
+                            </div>
+                        </li>
                     </div>
-                </li>
-                <li class="list">
-                    <input type="radio" id="u-option" name="instrument" class="instrument1" value="Oboe">
-                    <label for="u-option">Oboe</label>
-                    <div class="check">
-                        <div class="inside"></div>
+                    <div class="col-xs-12">
+                        <li class="list">
+                            <input type="radio" id="t-option" name="instrument" class="instrument1" value="Chorus">
+                            <label for="t-option">Chorus</label>
+                            <div class="check">
+                                <div class="inside"></div>
+                            </div>
+                        </li>
                     </div>
-                </li>
-            </ul>
-            <!--<p>Note:</p>-->
-            <div class="dropdown">
+                    <div class="col-xs-12">
+                        <li class="list">
+                            <input type="radio" id="u-option" name="instrument" class="instrument1" value="Oboe">
+                            <label for="u-option">Oboe</label>
+                            <div class="check">
+                                <div class="inside"></div>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            
+            <div class="row">
+              <div class="dropdown col-xs-12">
                 <span id="step2">Note:</span>
                 <select class="dropdown-select" name="notes" id="notes" onchange="this.value=value">
                     <option value="C">C</option>
@@ -94,7 +102,7 @@
                 </select>
             </div>
             <!--<p>Sharp/Flat:</p>-->
-            <div class="dropdown">
+            <div class="dropdown col-xs-12">
                 <span id="step3">Sharp/Flat:</span>
                 <select class="dropdown-select" name="sharpFlat" id="sharpFlat" onchange="this.value=value">
                     <option value=""></option>
@@ -103,7 +111,7 @@
                 </select>
             </div>
             <!--<p>Octave:</p>-->
-            <div class="dropdown">
+            <div class="dropdown col-xs-12">
                 <span id="step4">Octave:</span>
                 <select class="dropdown-select" name="octave" id="octave" onchange="this.value=value">
                     <option value="4">4</option>
@@ -111,11 +119,14 @@
                     <option value="6">6</option>
                 </select>
             </div>
-            <p><span id="step5">Loop Length: </span></p><span><output id="loopValue1">1</output></span>
-            <div id="slider">
+            
+            <div class="dropdown col-xs-12" id="slider">
+              <span id="step5">Loop Length: </span><span><output id="loopValue1">1</output></span>
                 <input class="bar" type="range" id="loop1" min="1" max="30" value="1" onchange="loopValue1.value=value" />
                 <span class="highlight"></span>
             </div>
+            </div>
+            
             <input id="step6" type="button" class="update-instrument1 myButton" value="Start New Track" />
         </div>
     </div>
@@ -145,7 +156,8 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/intro.js" </script>
-    <script src = "https://cdn.rawgit.com/mohayonao/web-audio-api-shim/master/build/web-audio-api-shim.min.js"></script>
+    < script src = "https://cdn.rawgit.com/mohayonao/web-audio-api-shim/master/build/web-audio-api-shim.min.js" >
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
